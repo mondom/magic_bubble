@@ -29,7 +29,7 @@ const drawAnswers = () => {
 }
 
 const checkInput = () => {
-	const pattern = /\b(czy|kiedy|co|dlaczego|po co|jak|skąd|gdzie)\b/gi;
+	const pattern = /\b(czy|kiedy|co|dlaczego|czemu|po co|jak|skąd|gdzie)\b/gi;
 
 	if (input.value.slice(-1) === '?' && pattern.test(input.value)) {
 		error.classList.remove('show-error')
