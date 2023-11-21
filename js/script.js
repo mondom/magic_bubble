@@ -34,6 +34,7 @@ const checkInput = () => {
 	if (input.value.slice(-1) === '?' && pattern.test(input.value)) {
 		error.classList.remove('show-error')
 		drawAnswers()
+		input.value = ''
 	} else if (pattern.test(input.value) && input.value.slice(-1) !== '?') {
 		error.textContent = 'Dodaj znak zapytania na końcu!'
 		error.classList.add('show-error')
@@ -45,7 +46,7 @@ const checkInput = () => {
 		error.classList.add('show-error')
 	}
 	bubble.classList.remove('big-bubble-action')
-	input.value = ''
+	
 }
 
 bubble.addEventListener('click', bubbleMove)
