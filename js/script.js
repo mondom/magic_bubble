@@ -20,6 +20,7 @@ const bubbleMove = () => {
 	bubble.classList.add('big-bubble-action')
 	setTimeout(checkInput, 2500)
 	answer.textContent = ''
+	
 }
 
 const drawAnswers = () => {
@@ -44,6 +45,7 @@ const checkInput = () => {
 		error.classList.add('show-error')
 	}
 	bubble.classList.remove('big-bubble-action')
+	input.value = ''
 }
 
 bubble.addEventListener('click', bubbleMove)
