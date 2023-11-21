@@ -1,0 +1,270 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	height: 100vh;
+	background-color: rgb(19, 57, 74);
+	overflow: hidden;
+	font-family: 'Rum Raisin', sans-serif;
+
+	.wrapper {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		background-image: url('../img/wielobarwne-ryby-plywaja-w-tropikalnej-rafie-koralowej-generowanej-przez-sztuczna-inteligencje.jpg');
+		background-size: cover;
+		object-fit: cover;
+		z-index: 0;
+		.shadow {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			left: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			z-index: -1;
+		}
+
+		.big-bubble {
+			position: relative;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 250px;
+			height: 250px;
+			border: 1px solid rgb(0, 0, 0);
+			border-radius: 50%;
+			box-shadow: inset 0 0 25px 0px rgba(66, 68, 90, 1);
+			padding: 15px;
+			cursor: pointer;
+			z-index: 0;
+
+			.shadow-bubble {
+				z-index: -1;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				top: 0;
+				left: 0;
+				position: absolute;
+				background: rgba(88, 168, 177, 0.15);
+				backdrop-filter: blur(2px);
+			}
+			.answer {
+				font-size: 20px;
+				z-index: 1;
+				color: rgb(255, 255, 255);
+				letter-spacing: 2px;
+				text-align: center;
+				text-shadow: 0 0 10px rgb(0, 0, 0);
+				opacity: 0;
+				animation: show-answer 2.5s forwards;
+			}
+		}
+		.big-bubble::after {
+			content: '';
+			position: absolute;
+			width: 20px;
+			height: 10px;
+			left: 70px;
+			top: 50px;
+			transform: skew(-15deg, -30deg);
+			border-radius: 50%;
+			border: none;
+			background-color: white;
+			box-shadow: 0 0 4px 4px rgb(255, 255, 255);
+		}
+
+		.big-bubble::before {
+			content: '';
+			position: absolute;
+			width: 4px;
+			height: 4px;
+			left: 50px;
+			top: 80px;
+			transform: skew(-15deg, -30deg);
+			border-radius: 50%;
+			border: none;
+			background-color: white;
+			box-shadow: 0 0 4px 4px rgb(255, 255, 255);
+		}
+		.big-bubble-action {
+			animation: big-bubble-flow 2.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+		}
+		.text-area {
+			width: 100%;
+			text-align: center;
+			text-shadow: 0 0 10px rgb(0, 0, 0);
+			color: rgb(255, 255, 255);
+			padding: 15px;
+			z-index: 0;
+			.title {
+				font-size: 45px;
+				margin-bottom: 10px;
+				letter-spacing: 3px;
+			}
+			.question-info {
+				font-size: 20px;
+				margin-bottom: 10px;
+				line-height: 30px;
+				letter-spacing: 2px;
+			}
+
+			.question {
+				margin-bottom: 10px;
+				font-size: 20px;
+				width: 85%;
+				border-radius: 8px;
+				border: 2px solid transparent;
+				padding: 8px;
+			}
+			.question:focus {
+				outline: none;
+				border: 2px solid rgb(10, 69, 109);
+			}
+			.error {
+				margin-top: 10px;
+				font-size: 18px;
+				visibility: hidden;
+			}
+			.show-error {
+				visibility: visible;
+			}
+		}
+	}
+	div.bubble {
+		bottom: -50px;
+		position: absolute;
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		mix-blend-mode: screen;
+		background-image: radial-gradient(rgb(240, 244, 246), rgb(122, 162, 187), rgba(153, 223, 255, 0));
+		animation: blinking 2s infinite, resizing 2s infinite, outflow linear;
+	}
+}
+
+
+
+@keyframes blinking {
+	0% {
+		opacity: 1;
+	}
+
+	50% {
+		opacity: 0.5;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes resizing {
+	0% {
+		transform: scale3d(0.5, 0.5, 0.9);
+	}
+
+	50% {
+		transform: scale3d(2, 2, 1);
+	}
+
+	100% {
+		transform: scale3d(0.5, 0.5, 1.1);
+	}
+}
+
+@keyframes outflow {
+	to {
+		transform: translateY(-105vh);
+	}
+}
+
+@keyframes big-bubble-flow {
+	0% {
+		transform: rotate(360deg) scale(1);
+	}
+
+	50% {
+		transform: rotate(-160deg) scale(0.1);
+	}
+
+	100% {
+		transform: rotate(0) scale(1);
+	}
+}
+
+@keyframes show-answer {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+
+@media (min-width: 495px) {
+	body {
+		.wrapper {
+			.big-bubble {
+				width: 400px;
+				height: 400px;
+
+				.answer {
+					font-size: 35px;
+				}
+			}
+			.big-bubble::after {
+				width: 20px;
+				height: 10px;
+				left: 90px;
+				top: 70px;
+			}
+
+			.big-bubble::before {
+				width: 4px;
+				height: 4px;
+				left: 70px;
+				top: 100px;
+			}
+
+			.text-area {
+				margin-bottom: 70px;
+
+				.title {
+					font-size: 75px;
+					margin-bottom: 30px;
+				}
+				.question-info {
+					font-size: 30px;
+					margin-bottom: 65px;
+					line-height: 50px;
+					letter-spacing: 2px;
+				}
+				.question {
+					margin-bottom: 10px;
+					font-size: 25px;
+					width: 70%;
+				}
+				.error {
+					margin-top: 20px;
+					font-size: 26px;
+				}
+			}
+		}
+		div.bubble {
+			width: 7px;
+			height: 7px;
+		}
+	}
+	
+}
