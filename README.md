@@ -1,1 +1,1 @@
-[Nature_photography](https://mondom.github.io/Nature-photography/)  ←  Link to the live view 
+[Magic_Bubble](https://mondom.github.io/magic_bubble/)  ←  Link to the live view 
